@@ -76,6 +76,12 @@ public class YarnConfig extends MapConfig {
   private static final int DEFAULT_AM_CONTAINER_MAX_MEMORY_MB = 1024;
 
   /**
+   * Number of CPU cores to request from YARN for running the AM
+   */
+  public static final String AM_CONTAINER_MAX_CPU_CORES = "yarn.am.container.cpu.cores";
+  private static final int DEFAULT_AM_CPU_CORES = 1;
+
+  /**
    * Determines the interval for the Heartbeat between the AM and the Yarn RM
    */
   public static final String AM_POLL_INTERVAL_MS = "yarn.am.poll.interval.ms";
@@ -168,6 +174,10 @@ public class YarnConfig extends MapConfig {
 
   public int getAMContainerMaxMemoryMb() {
     return getInt(AM_CONTAINER_MAX_MEMORY_MB, DEFAULT_AM_CONTAINER_MAX_MEMORY_MB);
+  }
+
+  public int getAMContainerMaxCpuCores() {
+    return getInt(AM_CONTAINER_MAX_CPU_CORES, DEFAULT_AM_CPU_CORES);
   }
 
   public String getAmOpts() {

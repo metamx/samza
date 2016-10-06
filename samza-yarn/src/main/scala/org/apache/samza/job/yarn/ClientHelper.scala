@@ -92,7 +92,7 @@ class ClientHelper(conf: Configuration) extends Logging {
 
     val packagePath = new Path(yarnConfig.getPackagePath)
     val mem = yarnConfig.getAMContainerMaxMemoryMb
-    val cpu = 1
+    val cpu = yarnConfig.getAMContainerMaxCpuCores
     val queueName = Option(yarnConfig.getQueueName)
 
     // If we are asking for memory more than the max allowed, shout out
